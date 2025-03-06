@@ -156,7 +156,7 @@ def main():
                 x, y = pygame.mouse.get_pos()
                 row, col = y // SQUARE_SIZE, x // SQUARE_SIZE
 
-                # ✅ Ensure player can only select their own pieces
+                # Ensure player can only select their own pieces
                 if board[row][col] and board[row][col][0] == turn:
                     selected_piece = (row, col)
                     dragging = True
@@ -169,7 +169,7 @@ def main():
                     # Get selected piece
                     piece = board[selected_piece[0]][selected_piece[1]]
 
-                    # ✅ Ensure only current player's turn
+                    #Ensure only current player's turn
                     if piece and piece[0] == turn:
                         legal_moves = get_legal_moves(board, selected_piece[0], selected_piece[1], piece)
 
@@ -177,7 +177,7 @@ def main():
                         if (new_row, new_col) in legal_moves:
                             move_piece(board, selected_piece, (new_row, new_col))
 
-                            # ✅ Switch turns after a valid move
+                            #Switch turns after a valid move
                             turn = 'b' if turn == 'w' else 'w'
 
                     selected_piece = None
